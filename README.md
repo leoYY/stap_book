@@ -44,3 +44,4 @@ test_stp.stp:
 	}
 
 	
+systemtap 无论对于用户态程序还是内核态接口均有很强大的trace功能.
