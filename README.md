@@ -15,4 +15,32 @@
   
 	sudo stap -ve 'probe begin{log("hello world!");exit();}'  
 
+暂时未安装kernel debuginfo，无法probe系统接口，可probe用户接口  
+test_stp.c:  
+	
+	#include <stdlib.h>
+	#include <stdio.h>
+	
+	void func() {
+		// just for test
+		return;
+	}
+	
+	int main(int argc, char* argv[]) {
+		while (1) {
+			sleep(1);
+			func();
+		}
+		return 0;
+	}
+编译：
+	
+	gcc -g test_stp.c -o test_stp
+test_stp.stp:
+	
+	#!/usr/bin/env stap
+	probe process("./test_stp").function("func") {
+		log("func is called");
+	}
 
+	
