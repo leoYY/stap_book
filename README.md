@@ -45,4 +45,4 @@ test_stp.stp:
 
 	
 systemtap 无论对于用户态程序还是内核态接口均有很强大的trace功能
-kernel相关需要安装[kernel-debuginfo-`uname -r`, kernel-debuginfo-common-`uname -r`](http://debuginfo.centos.org/7/x86_64/)
+kernel相关CentOS系列需要安装[kernel-debuginfo-`uname -r`, kernel-debuginfo-common-`uname -r`](http://debuginfo.centos.org/7/x86_64/)
