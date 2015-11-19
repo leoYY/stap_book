@@ -11,6 +11,9 @@
 源码版本：[systemtap-2.8.tar.gz](https://sourceware.org/systemtap/ftp/releases/systemtap-2.8.tar.gz)  
 依赖程序：[elfutils-0.158](https://fedorahosted.org/releases/e/l/elfutils/0.158/elfutils-0.158.tar.bz2), m4, yacc, g++  
 （其中原本试验在ubuntu中，但由于debian系列存在问题，而且平时用的centos比较多，还是在centos7上搞定了）  
+注意：systemtap需要elfutils的源码安装，并不需要elfutils提前编译并安装好
+
+	./configure --prefix=$HOME --with-elfutils=$ELFUTILS_SOURCE
 ### test 验证  
   
 	sudo stap -ve 'probe begin{log("hello world!");exit();}'  
