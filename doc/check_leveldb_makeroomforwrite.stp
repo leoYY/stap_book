@@ -1,0 +1,12 @@
+#!/usr/bin/env stap
+probe begin {
+  printf("Leveldb function call profile\n")
+}
+
+probe process("./db_bench").function("MakeRoomForWrite") {
+  printf("%s -> %s\n", thread_indent(1), probefunc())
+}
+
+probe process("./db_bench").function("MakeRoomForWrite") {
+  printf("%s <- %s\n", thread_indent(-1), probefunc())
+}
